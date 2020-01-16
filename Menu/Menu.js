@@ -35,25 +35,28 @@ let menuItems = [
 */
 
 const header = document.querySelector(".header");
-const menujs = document.querySelector(".menu-button");
+const button = document.querySelector(".menu-button");
 function createMenu(arr) {
   const navMenu = document.createElement("div");
   const theUL = document.createElement("ul");
 
-  //APPEND THE THING
+  //APPEND THE UL TO THE NAV MENU
   navMenu.appendChild(theUL);
-  //CREATE EACH LINK
+  //CREATE EACH LINK AND APPEND TO THE UL AS AN LI
   menuItems.forEach(links => {
     const items = document.createElement("li");
     items.textContent = links;
     theUL.appendChild(items);
   });
 
+  //ADD THE CLASS TO THE NAVMENU
   navMenu.classList.add("menu");
 
-  menujs.addEventListener("click", function() {
+  //ADD THE CLICK EVENT LISTENER TO THE NAV MENU BUTTON
+  button.addEventListener("click", function() {
     navMenu.classList.toggle("menu--open");
   });
+
   return navMenu;
 }
 
